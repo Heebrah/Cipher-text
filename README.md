@@ -35,33 +35,33 @@ Storage Security: Allows sensitive data to be stored in an encrypted form, reduc
 
 ## Types of Ciphers Producing Ciphertext
 
-✔️**Symmetric Ciphers:** Use the same key for encryption and decryption (e.g., Caesar Cipher, AES, DES). The ciphertext is secure as long as the key remains secret.
+- **Symmetric Ciphers:** Use the same key for encryption and decryption (e.g., Caesar Cipher, AES, DES). The ciphertext is secure as long as the key remains secret.
 
-✔️**Asymmetric Ciphers:** Use a public key for encryption and a private key for decryption (e.g., RSA). Ciphertext is secure due to the mathematical complexity of reversing the encryption without the private key.
+- **Asymmetric Ciphers:** Use a public key for encryption and a private key for decryption (e.g., RSA). Ciphertext is secure due to the mathematical complexity of reversing the encryption without the private key.
 
-✔️**Block Ciphers:** Encrypt data in fixed-size blocks (e.g., AES), producing structured ciphertext.
+- **Block Ciphers:** Encrypt data in fixed-size blocks (e.g., AES), producing structured ciphertext.
 Stream Ciphers: Encrypt data as a continuous stream (e.g., RC4), generating ciphertext bit by bit.
 
-Security Considerations
+## Security Considerations
 
-Strength of the Cipher: The security of ciphertext depends on the strength of the encryption algorithm. Weak ciphers, like the Caesar Cipher, are easily broken, while strong ciphers like AES are considered secure against modern attacks.
-Key Management: The security of ciphertext relies on protecting the decryption key. Poor key management can render even strong ciphers vulnerable.
-Attack Vectors: Ciphertext may be subject to attacks such as:
-Brute-Force Attacks: Trying all possible keys, feasible for ciphers with small key spaces.
-Frequency Analysis: Analyzing patterns in the ciphertext (e.g., common letters in a language) to deduce the key, effective against simple substitution ciphers.
-Chosen-Plaintext Attacks: When attackers can choose plaintexts and observe the resulting ciphertext to infer the key.
+- **Strength of the Cipher:** The security of ciphertext depends on the strength of the encryption algorithm. Weak ciphers, like the Caesar Cipher, are easily broken, while strong ciphers like AES are considered secure against modern attacks.
+- **Key Management:** The security of ciphertext relies on protecting the decryption key. Poor key management can render even strong ciphers vulnerable.
+- **Attack Vectors:** Ciphertext may be subject to attacks such as:
+- **Brute-Force Attacks:** Trying all possible keys, feasible for ciphers with small key spaces.
+- **Frequency Analysis:** Analyzing patterns in the ciphertext (e.g., common letters in a language) to deduce the key, effective against simple substitution ciphers.
+- **Chosen-Plaintext Attacks:** When attackers can choose plaintexts and observe the resulting ciphertext to infer the key.
 
 
-Length and Patterns: Longer ciphertexts may reveal patterns, especially in weaker ciphers, making them susceptible to cryptanalysis.
+- Length and Patterns: Longer ciphertexts may reveal patterns, especially in weaker ciphers, making them susceptible to cryptanalysis.
 
 ### Applications of Ciphertext
 
-✔️**Secure Communication:** Used in protocols like HTTPS, TLS, and VPNs to protect data transmitted over the internet.
+- **Secure Communication:** Used in protocols like HTTPS, TLS, and VPNs to protect data transmitted over the internet.
 
-✔️**Data Storage:** Encrypts sensitive information in databases, such as passwords or financial records, to prevent unauthorized access.
+- **Data Storage:** Encrypts sensitive information in databases, such as passwords or financial records, to prevent unauthorized access.
 
-✔️**Digital Signatures:** Ensures the integrity and authenticity of messages by encrypting a hash of the message.
-✔️**Secure Messaging:** Applications like WhatsApp and Signal use ciphertext to protect user communications.
+- **Digital Signatures:** Ensures the integrity and authenticity of messages by encrypting a hash of the message.
+- **Secure Messaging:** Applications like WhatsApp and Signal use ciphertext to protect user communications.
 
 ## Example in Context
 Using the Caesar Cipher implementation from the provided HTML/CSS/JavaScript code:
