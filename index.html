@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Caesar Cipher</h1>
+    <div class="container">
+        <label for="textInput">Enter Text:</label>
+        <textarea id="textInput" placeholder="Enter text to encrypt or decrypt"></textarea>
+
+        <label for="shiftInput">Shift Value (1-25):</label>
+        <input type="number" id="shiftInput" placeholder="Enter shift value" min="1" max="25">
+
+        <button onclick="encrypt()">Encrypt</button>
+        <button onclick="decrypt()">Decrypt</button>
+
+        <div id="result"></div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        function caesarCipher(text, shift, encrypt = true) {
+            if (!text || !shift) return "";
+            
+            shift = parseInt(shift);
+            if (isNaN(shift) || shift < 1 || shift > 25) {
+                document.getElementById("error").textContent = "Please enter a valid shift value (1-25).";
+                return "";
+            }
+            
+            document.getElementById("error").textContent = "";
+            shift = encrypt ? shift : -shift;
+            
+            return text.split('').map(char => {
+                if (char.match(/[a-zA-Z]/)) {
+                    const code = char.charCodeAt(0);
+                    const base = char >= 'A' && char <= 'Z' ? 65 : 97;
+                    return String.fromCharCode(((code - base + shift + 26) % 26) + base);
+                }
+                return char;
+            }).join('');
+        }
+
+        function encrypt() {
+            const text = document.getElementById("textInput").value;
+            const shift = document.getElementById("shiftInput").value;
+            const result = caesarCipher(text, shift, true);
+            document.getElementById("result").textContent = result ? `Encrypted text: ${result}` : "";
+        }
+
+        function decrypt() {
+            const text = document.getElementById("textInput").value;
+            const shift = document.getElementById("shiftInput").value;
+            const result = caesarCipher(text, shift, false);
+            document.getElementById("result").textContent = result ? `Decrypted text: ${result}` : "";
+        }
+    </script>
+</body>
+</html>
